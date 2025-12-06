@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { supabase } from '../supabase/client'
 import { AlertCard } from '../components/AlertCard'
+import { AlertStats } from '../components/AlertStats'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../components/ui/tabs'
 import { Activity, AlertTriangle } from 'lucide-react'
 
@@ -89,7 +90,13 @@ export function MonitoringDashboard() {
                 )}
             </div>
 
-            <Tabs value={filter} onValueChange={(v) => setFilter(v as any)} className="mb-6">
+            <AlertStats
+                totalAlerts={alerts.length}
+                criticalAlerts={criticalCount}
+                resolvedAlerts={alerts.filter(a => a.is_resolved).length}
+            />
+
+            <Tabs value={filter} onValueChange={(v) => setFilter(v as any)} className="mb-6 mt-6">
                 <TabsList className="grid w-full max-w-md grid-cols-3">
                     <TabsTrigger value="all">
                         Toutes ({alerts.filter(a => !a.is_resolved).length})
