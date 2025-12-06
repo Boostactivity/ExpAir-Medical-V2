@@ -15,6 +15,8 @@ import { AboutPage } from './pages/AboutPage';
 import { ContactPage } from './pages/ContactPage';
 import { LegalPage } from './pages/LegalPage';
 import { PrivacyPage } from './pages/PrivacyPage';
+import { MonitoringDashboard } from './components/MonitoringDashboard';
+import { Interventions } from './pages/Interventions';
 import { Toaster } from './components/ui/sonner';
 
 export default function App() {
@@ -37,6 +39,8 @@ export default function App() {
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/legal" element={<LegalPage />} />
           <Route path="/privacy" element={<PrivacyPage />} />
+          <Route path="/monitoring" element={<MonitoringDashboard />} />
+          <Route path="/interventions" element={<Interventions />} />
         </Routes>
         <Footer />
         <Toaster />
